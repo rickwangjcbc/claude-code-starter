@@ -1,0 +1,28 @@
+name: AI development standard
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  template-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python3 scripts/checks.py template
+      - run: python3 -m unittest discover -s tests -v
+  application-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      # 案件のランタイム設定・lockに基づく依存導入を、この位置へレビューして追加する。
+      # 未設定をcontinue-on-errorで隠さない。実環境の秘密はこの雛形には渡さない。
+      - run: python3 scripts/checks.py app

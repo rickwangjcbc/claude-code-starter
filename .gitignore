@@ -1,0 +1,14 @@
+# 個人設定・秘密情報
+.claude/settings.local.json
+CLAUDE.local.md
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# 作業用
+.claude/worktrees/
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/

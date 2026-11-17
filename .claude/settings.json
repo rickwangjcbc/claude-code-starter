@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [],
+    "ask": ["Bash", "Edit", "Write"],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/.env)",
+      "Read(./**/.env.*)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)"
+    ]
+  }
+}
